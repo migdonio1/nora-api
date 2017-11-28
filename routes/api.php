@@ -13,6 +13,36 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+Route::group(['prefix' => 'v1'], function () {
+
+    Route::resource('restaurants', 'RestaurantController');
+
+    Route::group(['prefix' => 'restaurants/{restaurant}'], function () {
+        Route::resource('menus', 'MenuController');
+        Route::resource('dishes', 'DishController');
+    });
+
+    /*Route::group(['middleware' => 'jwt.auth'], function () {
+        Route::resource('theaters', 'TheaterController');
+        Route::resource('events', 'EventController');
+        Route::resource('categories', 'CategoryController');
+        Route::group(['prefix' => 'events/{event_id}'], function () {
+            Route::resource('reviews', 'ReviewController');
+        });
+        Route::resource('schedules', 'ScheduleController');
+
+        Route::get('theaters/:theater_id/schedules', ['as' => 'theaters.schedules', 'uses' => 'TheaterController@getSchedules']);
+    });
+
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('login', ['as' => 'auth.login', 'uses' => 'AuthController@login']);
+        Route::post('signup', [ 'as' => 'auth.signup', 'uses' => 'AuthController@signup']);
+        Route::get('me', [ 'as' => 'auth.me', 'uses' => 'AuthController@getUser'] )->middleware('jwt.auth');
+    });*/
+
 });
+
