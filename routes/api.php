@@ -23,6 +23,10 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::group(['prefix' => 'restaurants/{restaurant}'], function () {
         Route::resource('menus', 'MenuController');
+        Route::resource('orders', 'OrderController');
+    });
+
+    Route::group(['prefix' => 'menus/{menu}'], function () {
         Route::resource('dishes', 'DishController');
     });
 

@@ -3,6 +3,8 @@
 use App\Device;
 use App\Dish;
 use App\Menu;
+use App\Order;
+use App\OrderItem;
 use App\Restaurant;
 use Illuminate\Database\Seeder;
 
@@ -43,6 +45,21 @@ class ApiSeeder extends Seeder
                 return Menu::all()->first()->id;
             }
         ]);
+
+        factory(Order::class, 5)->create([
+            'device_id' => function() {
+                return Device::all()->first()->id;
+            },
+            'restaurant_id' => function() {
+                return Restaurant::all()->first()->id;
+            }
+        ]);
+
+        foreach (Order::all() as $order) {
+            factory(OrderItem::class, 3)->create([
+                'order_id' => $order->id
+            ]);
+        }
 
         /*factory(Category::class, 15)->create();
 

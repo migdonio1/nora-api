@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -9,11 +10,17 @@ class DishController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
+     * @param int $menuId
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $menuId)
     {
-        //
+        $dishes = Dish::with('menu', 'menu.restaurant')
+            ->where('menu_id', $menuId)
+            ->where('type', $request->query('type', "food"))
+            ->get();
+        return response()->json($dishes, 200);
     }
 
     /**
