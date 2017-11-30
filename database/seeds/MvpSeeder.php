@@ -1,5 +1,9 @@
 <?php
 
+use App\Device;
+use App\Dish;
+use App\Menu;
+use App\Restaurant;
 use Illuminate\Database\Seeder;
 
 class MvpSeeder extends Seeder
@@ -44,7 +48,7 @@ class MvpSeeder extends Seeder
             'type' => 'drink',
             'price' => 30,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -55,7 +59,7 @@ class MvpSeeder extends Seeder
             'type' => 'drink',
             'price' => 28,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -66,7 +70,7 @@ class MvpSeeder extends Seeder
             'type' => 'drink',
             'price' => 22,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -77,7 +81,7 @@ class MvpSeeder extends Seeder
             'type' => 'drink',
             'price' => 25,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
     }
@@ -90,7 +94,7 @@ class MvpSeeder extends Seeder
             'type' => 'dessert',
             'price' => 48,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -101,7 +105,7 @@ class MvpSeeder extends Seeder
             'type' => 'dessert',
             'price' => 45,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -112,7 +116,7 @@ class MvpSeeder extends Seeder
             'type' => 'dessert',
             'price' => 30,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
     }
@@ -125,7 +129,7 @@ class MvpSeeder extends Seeder
             'type' => 'food',
             'price' => 58,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -136,7 +140,7 @@ class MvpSeeder extends Seeder
             'type' => 'food',
             'price' => 48,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -147,7 +151,7 @@ class MvpSeeder extends Seeder
             'type' => 'food',
             'price' => 36,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
         factory(Dish::class, 1)->create([
@@ -157,7 +161,7 @@ class MvpSeeder extends Seeder
             'type' => 'food',
             'price' => 58,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
         factory(Dish::class, 1)->create([
@@ -167,7 +171,7 @@ class MvpSeeder extends Seeder
             'type' => 'food',
             'price' => 45,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
 
@@ -178,7 +182,7 @@ class MvpSeeder extends Seeder
             'type' => 'food',
             'price' => 58,
             'menu_id' => function() {
-                return Dish::all()->first()->id;
+                return Menu::all()->first()->id;
             }
         ]);
     }
