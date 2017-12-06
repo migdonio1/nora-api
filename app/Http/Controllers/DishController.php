@@ -30,7 +30,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -41,7 +41,12 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dish = new Dish($request->all());
+        $dish->save();
+
+        return response()
+            ->setStatusCode(201)
+            ->json($dish);
     }
 
     /**
@@ -75,7 +80,12 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dish = Dish::find($id);
+        $dish->fill($request->all())->save();
+
+        return response()
+            ->setStatusCode(201)
+            ->json($dish);
     }
 
     /**

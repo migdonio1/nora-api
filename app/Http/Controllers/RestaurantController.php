@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Restaurant;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -45,7 +46,10 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        return response()
+            ->setStatusCode(200)
+            ->json($restaurant);
     }
 
     /**

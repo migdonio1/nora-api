@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -34,7 +35,12 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order($request->all());
+        $order->save();
+
+        return response()
+            ->setStatusCode(200)
+            ->json($order);
     }
 
     /**
